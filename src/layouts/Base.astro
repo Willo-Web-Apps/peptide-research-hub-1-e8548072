@@ -8,16 +8,24 @@ interface Props {
   description?: string;
   ogImage?: string;
   canonical?: string;
+  /** Set to 'article' for blog posts to enable Article structured data */
+  pageType?: 'website' | 'article';
+  pubDate?: Date;
+  author?: string;
 }
 
 const {
   title = "HelixVault — Research-Grade Peptide Guides & Science",
-  description = "The most trusted peptide research resource. Expert-written guides on BPC-157, TB-500, Semaglutide, and more — backed by peer-reviewed science.",
+  description = "Clear, peer-reviewed guides on BPC-157, TB-500, Semaglutide, CJC-1295, and more — written for people who want real science, not forum speculation.",
   ogImage = "https://helixvault.onrender.com/og-default.png",
   canonical,
+  pageType = 'website',
+  pubDate,
+  author = "HelixVault Research Team",
 } = Astro.props;
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, "https://helixvault.onrender.com").toString();
+const pubDateISO = pubDate?.toISOString();
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -28,16 +36,26 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, "https://helixvaul
     <!-- Primary SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={author} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Keywords (broad — helps discovery of research content) -->
+    <meta name="keywords" content="peptide research, BPC-157, TB-500, Semaglutide, CJC-1295, Ipamorelin, Epithalon, peptide guide, peptide science, research chemicals, GLP-1, GHRH, growth hormone peptides" />
+
     <!-- Open Graph -->
-    <meta property="og:type"        content="website" />
+    <meta property="og:type"        content={pageType === 'article' ? 'article' : 'website'} />
     <meta property="og:url"         content={canonicalURL} />
     <meta property="og:title"       content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image"       content={ogImage} />
     <meta property="og:site_name"   content="HelixVault" />
     <meta property="og:locale"      content="en_US" />
+    {pageType === 'article' && pubDateISO && (
+      <meta property="article:published_time" content={pubDateISO} />
+    )}
+    {pageType === 'article' && (
+      <meta property="article:author" content={author} />
+    )}
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card"        content="summary_large_image" />
@@ -46,7 +64,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, "https://helixvaul
     <meta name="twitter:image"       content={ogImage} />
 
     <!-- Robots / indexing -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- Theme color (browser chrome on mobile) -->
     <meta name="theme-color" content="#0d1117" />
@@ -54,20 +72,51 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, "https://helixvaul
     <!-- Favicon (inline SVG data URI — no file needed) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1f2e'/%3E%3Cpath d='M11 5v5.6a3 3 0 0 1-.88 2.12L6 17' stroke='%2322d3c8' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M11 5c-.33.03-.67.07-1 .11m1-.11a32.4 32.4 0 0 1 6 0m0 0v5.6c0 .8.32 1.56.88 2.12L26.4 22' stroke='%2322d3c8' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M17 5c.33.03.67.07 1 .11' stroke='%2322d3c8' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
 
-    <!-- Structured data -->
+    <!-- Google Fonts — preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured data — WebSite (always) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "HelixVault",
       "url": "https://helixvault.onrender.com",
-      "description": "Research-grade peptide guides and science for curious, health-conscious adults.",
+      "description": "Research-grade peptide guides for curious, health-conscious adults.",
       "potentialAction": {
         "@type": "ReadAction",
         "target": "https://helixvault.onrender.com/blog"
       }
     }
     </script>
+
+    <!-- Structured data — Article (blog posts only) -->
+    {pageType === 'article' && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": description,
+        "url": canonicalURL,
+        "datePublished": pubDateISO,
+        "author": {
+          "@type": "Organization",
+          "name": "HelixVault Research Team",
+          "url": "https://helixvault.onrender.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HelixVault",
+          "url": "https://helixvault.onrender.com"
+        },
+        "image": ogImage,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalURL
+        }
+      })} />
+    )}
   </head>
   <body class="min-h-screen flex flex-col bg-surface-50 text-surface-900 font-body antialiased">
     <Header />

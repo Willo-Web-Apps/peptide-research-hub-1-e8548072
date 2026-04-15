@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 ---
 <Base
   title="HelixVault — Research-Grade Peptide Guides & Science"
-  description="The most trusted peptide research resource. Expert-written guides on BPC-157, TB-500, Semaglutide, and more — backed by peer-reviewed science."
+  description="Clear, peer-reviewed guides on BPC-157, TB-500, Semaglutide, CJC-1295, and more — written for people who want real science, not forum speculation."
 >
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -14,94 +14,110 @@ import Base from '../layouts/Base.astro';
     <!-- Layered CSS gradient background -->
     <div class="absolute inset-0" style="
       background:
-        radial-gradient(ellipse at 15% 60%, oklch(0.62 0.16 192 / 0.14), transparent 52%),
-        radial-gradient(ellipse at 85% 20%, oklch(0.74 0.16 75 / 0.07), transparent 48%),
-        radial-gradient(ellipse at 60% 90%, oklch(0.62 0.16 192 / 0.08), transparent 44%),
-        linear-gradient(to bottom, oklch(0.11 0.008 250), oklch(0.13 0.009 250));
+        radial-gradient(ellipse at 12% 65%, oklch(0.62 0.16 192 / 0.16), transparent 50%),
+        radial-gradient(ellipse at 82% 18%, oklch(0.74 0.16 75 / 0.08), transparent 46%),
+        radial-gradient(ellipse at 55% 92%, oklch(0.62 0.16 192 / 0.09), transparent 42%),
+        linear-gradient(160deg, oklch(0.115 0.009 252), oklch(0.105 0.007 248));
     "></div>
 
-    <!-- Dot grid texture overlay -->
-    <div class="absolute inset-0 bg-dot-grid opacity-60"></div>
+    <!-- Dot-grid texture -->
+    <div class="absolute inset-0 bg-dot-grid opacity-50"></div>
 
-    <!-- Thin top accent line -->
-    <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, transparent 0%, oklch(0.62 0.16 192 / 0.8) 30%, oklch(0.74 0.16 75 / 0.9) 60%, transparent 100%);"></div>
+    <!-- Top accent gradient line -->
+    <div class="absolute top-0 left-0 right-0 h-[2px]" style="
+      background: linear-gradient(to right,
+        transparent 0%,
+        oklch(0.62 0.16 192 / 0.9) 25%,
+        oklch(0.74 0.16 75 / 0.85) 55%,
+        transparent 100%
+      );
+    "></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
       <div class="max-w-4xl">
 
-        <!-- Eyebrow label -->
+        <!-- Eyebrow -->
         <div class="animate-slide-up flex items-center gap-3 mb-8">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase border border-brand-500/30 bg-brand-500/10 text-brand-400">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-brand-500/30 bg-brand-500/10 text-brand-400 font-display">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-glow"></span>
             Research-Grade Resource
           </span>
         </div>
 
-        <!-- H1 -->
-        <h1 class="animate-slide-up delay-100 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight font-display leading-[1.08] text-surface-950">
+        <!-- H1 — strong mobile-first layout -->
+        <h1 class="animate-slide-up delay-100 font-display font-bold tracking-tight leading-[1.06] text-surface-950"
+            style="font-size: clamp(2.4rem, 6vw, 4.75rem);">
           Understand peptides<br/>
-          <span style="color: oklch(0.62 0.16 192);">before</span> you<br class="hidden md:block"/> ever use one.
+          <em class="not-italic" style="color: oklch(0.62 0.16 192);">before</em> you ever use one.
         </h1>
 
         <!-- Subheadline -->
-        <p class="animate-slide-up delay-200 mt-7 text-xl md:text-2xl leading-relaxed font-body font-light text-surface-800 max-w-2xl">
-          Clear, peer-reviewed guides on BPC-157, TB-500, Semaglutide, and 30+ peptides — written for curious people who want real science, not forum rumors.
+        <p class="animate-slide-up delay-200 mt-7 text-lg md:text-xl lg:text-2xl leading-relaxed font-body font-light max-w-2xl"
+           style="color: oklch(0.78 0.009 250);">
+          Clear, peer-reviewed guides on BPC-157, TB-500, Semaglutide, CJC-1295 — and counting.
+          Real mechanisms, real trial data, zero forum speculation.
         </p>
 
         <!-- CTAs -->
         <div class="animate-slide-up delay-300 mt-10 flex flex-wrap items-center gap-4">
-          <a href="#guides"
-             class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold font-display text-base transition-colors duration-150"
-             style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);"
-             onmouseover="this.style.background='oklch(0.52 0.15 192)'"
-             onmouseout="this.style.background='oklch(0.62 0.16 192)'">
-            Explore the research library
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <a href="/blog"
+             class="cta-primary inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-semibold font-display text-base transition-colors duration-150"
+             style="background: oklch(0.62 0.16 192); color: oklch(0.10 0.008 250);">
+            Browse the research library
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-4 h-4 shrink-0" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </a>
           <a href="#newsletter"
-             class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold font-display text-base border border-surface-200/30 text-surface-900 hover:border-brand-500/50 hover:text-brand-400 transition-colors duration-150">
-            Get weekly research digests
+             class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-semibold font-display text-base border transition-colors duration-150"
+             style="border-color: oklch(0.30 0.010 250); color: oklch(0.86 0.006 250);"
+             onmouseover="this.style.borderColor='oklch(0.62 0.16 192 / 0.6)'; this.style.color='oklch(0.72 0.14 192)'"
+             onmouseout="this.style.borderColor='oklch(0.30 0.010 250)'; this.style.color='oklch(0.86 0.006 250)'">
+            Get weekly digests
           </a>
         </div>
 
         <!-- Micro-proof -->
-        <p class="animate-slide-up delay-400 mt-5 text-sm text-surface-800/50 font-display">
-          Free to read. No prescription required. No hype.
+        <p class="animate-slide-up delay-400 mt-6 text-sm font-display"
+           style="color: oklch(0.60 0.008 250);">
+          Free to read &nbsp;·&nbsp; No prescription needed &nbsp;·&nbsp; No hype
         </p>
+
       </div>
     </div>
 
-    <!-- Bottom fade -->
-    <div class="absolute bottom-0 left-0 right-0 h-24" style="background: linear-gradient(to bottom, transparent, oklch(0.11 0.008 250));"></div>
+    <!-- Bottom fade into next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-28" style="
+      background: linear-gradient(to bottom, transparent, oklch(0.11 0.008 250));
+    "></div>
   </section>
 
 
   <!-- ═══════════════════════════════════════════════════════════
-       SOCIAL PROOF BAR
+       STATS BAR
   ═══════════════════════════════════════════════════════════ -->
-  <section class="bg-surface-100 border-y border-surface-200/40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-center text-xs font-semibold tracking-widest uppercase text-surface-800/40 font-display mb-10">
-        Trusted by researchers, biohackers & health-focused readers
+  <section class="border-y border-surface-200/30" style="background: oklch(0.145 0.009 250);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
+      <p class="text-center text-xs font-semibold tracking-widest uppercase font-display mb-9"
+         style="color: oklch(0.50 0.008 250);">
+        Trusted by researchers, biohackers &amp; clinically-curious readers
       </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 text-center">
         <div>
-          <p class="text-3xl md:text-4xl font-bold font-display" style="color: oklch(0.62 0.16 192);">34+</p>
-          <p class="mt-1 text-sm text-surface-800/60 font-display">Peptide profiles covered</p>
+          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">6+</p>
+          <p class="mt-1.5 text-sm font-display" style="color: oklch(0.60 0.008 250);">In-depth peptide profiles</p>
         </div>
         <div>
-          <p class="text-3xl md:text-4xl font-bold font-display" style="color: oklch(0.62 0.16 192);">180+</p>
-          <p class="mt-1 text-sm text-surface-800/60 font-display">Peer-reviewed studies cited</p>
+          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">180+</p>
+          <p class="mt-1.5 text-sm font-display" style="color: oklch(0.60 0.008 250);">Peer-reviewed studies cited</p>
         </div>
         <div>
-          <p class="text-3xl md:text-4xl font-bold font-display" style="color: oklch(0.62 0.16 192);">12k+</p>
-          <p class="mt-1 text-sm text-surface-800/60 font-display">Monthly readers</p>
+          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">100%</p>
+          <p class="mt-1.5 text-sm font-display" style="color: oklch(0.60 0.008 250);">Free — no paywall, ever</p>
         </div>
         <div>
-          <p class="text-3xl md:text-4xl font-bold font-display" style="color: oklch(0.62 0.16 192);">100%</p>
-          <p class="mt-1 text-sm text-surface-800/60 font-display">Free to access</p>
+          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">Weekly</p>
+          <p class="mt-1.5 text-sm font-display" style="color: oklch(0.60 0.008 250);">New research digested</p>
         </div>
       </div>
     </div>
@@ -114,95 +130,108 @@ import Base from '../layouts/Base.astro';
   <section id="guides" class="py-24 md:py-32 bg-surface-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+      <!-- Section header -->
       <div class="max-w-2xl mb-16">
         <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">
-          What's inside
+          What's inside every guide
         </p>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-display text-surface-950 leading-tight">
-          Every guide you need — none of the speculation.
+          The full picture —<br class="hidden sm:block"/> not just the headlines.
         </h2>
-        <p class="mt-5 text-lg text-surface-800/60 leading-relaxed font-body">
-          We translate dense research papers into clear, accurate summaries with protocols, mechanisms, and legal context.
+        <p class="mt-5 text-lg leading-relaxed font-body" style="color: oklch(0.68 0.009 250);">
+          We go from primary literature to plain English — mechanisms, protocols, safety signals, and legal status in a single guide.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <!-- Card 1 -->
-        <div class="group rounded-2xl border border-surface-200/30 bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-6 h-6">
+        <div class="animate-slide-up delay-100 group rounded-2xl border bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200"
+             style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6 shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-5 h-5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold font-display text-surface-950 mb-3">Mechanism deep-dives</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Understand exactly how each peptide works at the cellular level — receptor binding, half-lives, downstream effects — not just "what it does."
+          <h3 class="text-lg font-bold font-display text-surface-950 mb-3 leading-snug">Mechanism deep-dives</h3>
+          <p class="text-[0.9375rem] leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+            Receptor binding, half-lives, downstream effects — exactly how each peptide works at the cellular level, not just what it supposedly does.
           </p>
         </div>
 
         <!-- Card 2 -->
-        <div class="group rounded-2xl border border-surface-200/30 bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-6 h-6">
+        <div class="animate-slide-up delay-200 group rounded-2xl border bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200"
+             style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6 shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-5 h-5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold font-display text-surface-950 mb-3">Protocol reference sheets</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Dosing windows, administration routes, and cycling patterns drawn directly from human trial data — not bro-science forum posts.
+          <h3 class="text-lg font-bold font-display text-surface-950 mb-3 leading-snug">Protocol reference data</h3>
+          <p class="text-[0.9375rem] leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+            Dosing windows, administration routes, and cycling patterns — drawn from human trial data, not anonymous forum posts.
           </p>
         </div>
 
         <!-- Card 3 -->
-        <div class="group rounded-2xl border border-surface-200/30 bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-6 h-6">
+        <div class="animate-slide-up delay-300 group rounded-2xl border bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200"
+             style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6 shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-5 h-5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold font-display text-surface-950 mb-3">Legal & regulatory context</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Clear breakdowns of research-use status, prescription landscapes, and grey-area realities — jurisdiction by jurisdiction.
+          <h3 class="text-lg font-bold font-display text-surface-950 mb-3 leading-snug">Legal &amp; regulatory context</h3>
+          <p class="text-[0.9375rem] leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+            Research-use status, prescription landscapes, and grey-area realities — broken down clearly, jurisdiction by jurisdiction.
           </p>
         </div>
 
         <!-- Card 4 -->
-        <div class="group rounded-2xl border border-surface-200/30 bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-6 h-6">
+        <div class="animate-slide-up delay-200 group rounded-2xl border bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200"
+             style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6 shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-5 h-5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold font-display text-surface-950 mb-3">Side effect & safety profiles</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Honest reporting on observed adverse events, contraindications, and drug interactions across available clinical data — including what's still unknown.
+          <h3 class="text-lg font-bold font-display text-surface-950 mb-3 leading-snug">Honest safety profiles</h3>
+          <p class="text-[0.9375rem] leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+            Observed adverse events, contraindications, drug interactions — including what's still unknown. No safety theatre, no downplaying.
           </p>
         </div>
 
         <!-- Card 5 -->
-        <div class="group rounded-2xl border border-surface-200/30 bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-6 h-6">
+        <div class="animate-slide-up delay-300 group rounded-2xl border bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200"
+             style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6 shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-5 h-5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 1 1.242 7.244" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold font-display text-surface-950 mb-3">Sourced from primary literature</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Every claim links to its PubMed source. No anonymous anecdotes. No "experts say." Read the study yourself in one click.
+          <h3 class="text-lg font-bold font-display text-surface-950 mb-3 leading-snug">Primary literature only</h3>
+          <p class="text-[0.9375rem] leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+            Every claim traces back to a named PubMed study. No anonymous anecdotes. No "experts say." One click to the source.
           </p>
         </div>
 
         <!-- Card 6 -->
-        <div class="group rounded-2xl border border-surface-200/30 bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-6 h-6">
+        <div class="animate-slide-up delay-400 group rounded-2xl border bg-surface-100 p-8 hover:border-brand-500/40 transition-colors duration-200"
+             style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6 shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-5 h-5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold font-display text-surface-950 mb-3">Continuously updated</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            New trials publish weekly. We track them and update our guides when the evidence shifts — so you're never reading yesterday's consensus.
+          <h3 class="text-lg font-bold font-display text-surface-950 mb-3 leading-snug">Updated as evidence evolves</h3>
+          <p class="text-[0.9375rem] leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+            New trials publish every week. We track them and revise our guides when the evidence shifts — so you're never relying on a stale consensus.
           </p>
         </div>
 
@@ -214,57 +243,67 @@ import Base from '../layouts/Base.astro';
   <!-- ═══════════════════════════════════════════════════════════
        HOW IT WORKS — 3 Steps
   ═══════════════════════════════════════════════════════════ -->
-  <section class="py-24 md:py-32 bg-surface-100">
+  <section class="py-24 md:py-32" style="background: oklch(0.145 0.009 250);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-xl mx-auto mb-20">
         <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">
           How to use this site
         </p>
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display text-surface-950">
-          From curious to informed in three steps
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display text-surface-950 leading-tight">
+          From first search to informed decision
         </h2>
+        <p class="mt-4 text-base font-body leading-relaxed" style="color: oklch(0.62 0.008 250);">
+          Three steps. No signup. No credit card. No barriers.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-12 relative">
 
-        <!-- Connector line (desktop only) -->
-        <div class="hidden md:block absolute top-10 left-1/3 right-1/3 h-[1px]" style="background: linear-gradient(to right, oklch(0.62 0.16 192 / 0.3), oklch(0.62 0.16 192 / 0.3));"></div>
+        <!-- Connector line (desktop only) — sits at vertical center of the number circles -->
+        <div class="hidden md:block absolute h-[1px] top-[1.375rem] left-[calc(33.333%+1.5rem)] right-[calc(33.333%+1.5rem)]"
+             style="background: linear-gradient(to right, oklch(0.62 0.16 192 / 0.25), oklch(0.62 0.16 192 / 0.25));"></div>
 
         <!-- Step 1 -->
-        <div class="flex flex-col items-start md:items-center md:text-center">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold font-display text-lg mb-6 shrink-0"
-               style="background: oklch(0.62 0.16 192 / 0.15); color: oklch(0.62 0.16 192); border: 1px solid oklch(0.62 0.16 192 / 0.3);">
+        <div class="animate-slide-up delay-100 flex flex-col items-start md:items-center md:text-center gap-5">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold font-display text-sm shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192); border: 1px solid oklch(0.62 0.16 192 / 0.35);">
             01
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-3">Pick your peptide</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Browse our A–Z index or search by goal — healing, body composition, cognition, longevity. Find the peptide relevant to you.
-          </p>
+          <div>
+            <h3 class="text-xl font-bold font-display text-surface-950 mb-2">Find your peptide</h3>
+            <p class="text-base leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+              Browse by name or filter by goal — healing, metabolic health, cognition, longevity. Six comprehensive profiles, with more publishing regularly.
+            </p>
+          </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="flex flex-col items-start md:items-center md:text-center">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold font-display text-lg mb-6 shrink-0"
-               style="background: oklch(0.62 0.16 192 / 0.15); color: oklch(0.62 0.16 192); border: 1px solid oklch(0.62 0.16 192 / 0.3);">
+        <div class="animate-slide-up delay-200 flex flex-col items-start md:items-center md:text-center gap-5">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold font-display text-sm shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192); border: 1px solid oklch(0.62 0.16 192 / 0.35);">
             02
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-3">Read the full profile</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Each guide covers mechanism, human trial results, protocols, safety signals, and legal status — everything in one place, no paywalls.
-          </p>
+          <div>
+            <h3 class="text-xl font-bold font-display text-surface-950 mb-2">Read the full profile</h3>
+            <p class="text-base leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+              Mechanism, human trial results, protocol data, safety signals, and legal status — all in one place, no paywall, no login required.
+            </p>
+          </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="flex flex-col items-start md:items-center md:text-center">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold font-display text-lg mb-6 shrink-0"
-               style="background: oklch(0.62 0.16 192 / 0.15); color: oklch(0.62 0.16 192); border: 1px solid oklch(0.62 0.16 192 / 0.3);">
+        <div class="animate-slide-up delay-300 flex flex-col items-start md:items-center md:text-center gap-5">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold font-display text-sm shrink-0"
+               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192); border: 1px solid oklch(0.62 0.16 192 / 0.35);">
             03
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-3">Talk to your doctor</h3>
-          <p class="text-base text-surface-800/60 leading-relaxed font-body">
-            Bring real data to your next consultation. Our guides are designed to make you a better-informed patient, not replace medical advice.
-          </p>
+          <div>
+            <h3 class="text-xl font-bold font-display text-surface-950 mb-2">Bring facts to your doctor</h3>
+            <p class="text-base leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
+              Our guides make you a better-informed patient. Walk into your consultation with specific questions and real citations — not something you read on Reddit.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -273,7 +312,7 @@ import Base from '../layouts/Base.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════
-       FEATURED PEPTIDES — mini library preview
+       FEATURED PEPTIDES — library preview
   ═══════════════════════════════════════════════════════════ -->
   <section class="py-24 md:py-32 bg-surface-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -287,9 +326,13 @@ import Base from '../layouts/Base.astro';
             Start with the most researched peptides
           </h2>
         </div>
-        <a href="/blog" class="shrink-0 inline-flex items-center gap-2 text-sm font-semibold font-display text-brand-400 hover:text-brand-200 transition-colors">
-          View full library
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+        <a href="/blog"
+           class="shrink-0 inline-flex items-center gap-2 text-sm font-semibold font-display transition-colors duration-150"
+           style="color: oklch(0.72 0.14 192);"
+           onmouseover="this.style.color='oklch(0.84 0.13 192)'"
+           onmouseout="this.style.color='oklch(0.72 0.14 192)'">
+          View all guides
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-4 h-4" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
         </a>
@@ -298,51 +341,71 @@ import Base from '../layouts/Base.astro';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
         <!-- BPC-157 -->
-        <a href="/blog" class="group block rounded-2xl border border-surface-200/30 bg-surface-100 p-6 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="inline-block px-2 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide" style="background: oklch(0.62 0.16 192 / 0.15); color: oklch(0.62 0.16 192);">
+        <a href="/blog/bpc-157-complete-guide"
+           class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
+           style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
+               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
             Healing &amp; Recovery
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 group-hover:text-brand-400 transition-colors">BPC-157</h3>
-          <p class="text-sm text-surface-800/55 leading-relaxed font-body">
-            Body Protective Compound with strong evidence for tendon, gut, and nerve repair in animal models.
+          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+            BPC-157
+          </h3>
+          <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
+            Body Protective Compound — strong evidence for tendon, gut, and nerve repair across animal studies.
           </p>
-          <p class="mt-4 text-xs font-display text-surface-800/40">14 studies reviewed</p>
+          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">14 studies reviewed</p>
         </a>
 
         <!-- TB-500 -->
-        <a href="/blog" class="group block rounded-2xl border border-surface-200/30 bg-surface-100 p-6 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="inline-block px-2 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide" style="background: oklch(0.62 0.16 192 / 0.15); color: oklch(0.62 0.16 192);">
+        <a href="/blog/tb-500-thymosin-beta-4"
+           class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
+           style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
+               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
             Tissue Repair
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 group-hover:text-brand-400 transition-colors">TB-500</h3>
-          <p class="text-sm text-surface-800/55 leading-relaxed font-body">
-            Synthetic Thymosin Beta-4 fragment with proven angiogenic and anti-inflammatory properties.
+          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+            TB-500
+          </h3>
+          <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
+            Synthetic Thymosin Beta-4 fragment with documented angiogenic and anti-inflammatory properties.
           </p>
-          <p class="mt-4 text-xs font-display text-surface-800/40">11 studies reviewed</p>
+          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">11 studies reviewed</p>
         </a>
 
         <!-- Semaglutide -->
-        <a href="/blog" class="group block rounded-2xl border border-surface-200/30 bg-surface-100 p-6 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="inline-block px-2 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide" style="background: oklch(0.74 0.16 75 / 0.15); color: oklch(0.74 0.16 75);">
+        <a href="/blog/semaglutide-research-guide"
+           class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
+           style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
+               style="background: oklch(0.74 0.16 75 / 0.14); color: oklch(0.74 0.16 75);">
             Metabolic Health
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 group-hover:text-brand-400 transition-colors">Semaglutide</h3>
-          <p class="text-sm text-surface-800/55 leading-relaxed font-body">
+          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+            Semaglutide
+          </h3>
+          <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
             GLP-1 receptor agonist approved for T2D and obesity — the most-discussed peptide of the decade.
           </p>
-          <p class="mt-4 text-xs font-display text-surface-800/40">22 studies reviewed</p>
+          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">22 studies reviewed</p>
         </a>
 
         <!-- CJC-1295 -->
-        <a href="/blog" class="group block rounded-2xl border border-surface-200/30 bg-surface-100 p-6 hover:border-brand-500/40 transition-colors duration-200">
-          <div class="inline-block px-2 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide" style="background: oklch(0.62 0.16 192 / 0.15); color: oklch(0.62 0.16 192);">
+        <a href="/blog/cjc-1295-research-guide"
+           class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
+           style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
+               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
             Longevity
           </div>
-          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 group-hover:text-brand-400 transition-colors">CJC-1295</h3>
-          <p class="text-sm text-surface-800/55 leading-relaxed font-body">
-            GHRH analogue that sustainably elevates growth hormone and IGF-1 — popular for body composition and sleep.
+          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+            CJC-1295
+          </h3>
+          <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
+            GHRH analogue with human pharmacokinetic data showing sustained GH and IGF-1 elevation.
           </p>
-          <p class="mt-4 text-xs font-display text-surface-800/40">9 studies reviewed</p>
+          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">9 studies reviewed</p>
         </a>
 
       </div>
@@ -353,35 +416,84 @@ import Base from '../layouts/Base.astro';
   <!-- ═══════════════════════════════════════════════════════════
        NEWSLETTER / EMAIL CAPTURE
   ═══════════════════════════════════════════════════════════ -->
-  <section id="newsletter" class="py-24 md:py-32 bg-surface-100">
+  <section id="newsletter" class="py-24 md:py-32" style="background: oklch(0.145 0.009 250);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center">
-        <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">
-          Weekly digest
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display text-surface-950 mb-5">
-          New peptide trials, distilled every week.
-        </h2>
-        <p class="text-lg text-surface-800/60 leading-relaxed font-body mb-10">
-          We scan PubMed so you don't have to. Get a plain-English summary of the most important new peptide research, every Tuesday — free.
-        </p>
-        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#" method="POST">
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            class="flex-1 px-4 py-3 rounded-lg border border-surface-200/40 bg-surface-50 text-surface-950 placeholder-surface-800/40 font-display text-sm focus:outline-none focus:border-brand-500/60 transition-colors"
-          />
-          <button
-            type="submit"
-            class="px-6 py-3 rounded-lg font-semibold font-display text-sm transition-colors duration-150 shrink-0"
-            style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);"
-          >
-            Send me research
-          </button>
-        </form>
-        <p class="mt-4 text-xs text-surface-800/40 font-display">No spam. Unsubscribe in one click. We never sell your data.</p>
+
+      <!-- Two-column layout — copy left, form right -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Left: copy -->
+        <div>
+          <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">
+            Weekly research digest
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display text-surface-950 leading-tight mb-5">
+            New peptide trials,<br class="hidden sm:block"/> plain English, every Tuesday.
+          </h2>
+          <p class="text-lg leading-relaxed font-body mb-8" style="color: oklch(0.62 0.008 250);">
+            We scan PubMed weekly so you don't have to. The most significant new peptide research — mechanism, findings, and what it means for your understanding — in a five-minute read.
+          </p>
+          <!-- Trust signals -->
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm font-display" style="color: oklch(0.60 0.008 250);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="oklch(0.62 0.16 192)" class="w-4 h-4 shrink-0" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+              </svg>
+              No hype, no products — just research summaries
+            </li>
+            <li class="flex items-center gap-3 text-sm font-display" style="color: oklch(0.60 0.008 250);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="oklch(0.62 0.16 192)" class="w-4 h-4 shrink-0" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+              </svg>
+              Links to source studies in every issue
+            </li>
+            <li class="flex items-center gap-3 text-sm font-display" style="color: oklch(0.60 0.008 250);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="oklch(0.62 0.16 192)" class="w-4 h-4 shrink-0" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+              </svg>
+              Free forever. Unsubscribe in one click.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: form -->
+        <div class="rounded-2xl border p-8 md:p-10"
+             style="background: oklch(0.11 0.008 250); border-color: oklch(0.22 0.010 250 / 0.6);">
+          <p class="text-base font-semibold font-display text-surface-950 mb-6">
+            Join the digest — it's free
+          </p>
+          <form class="space-y-4" action="#" method="POST">
+            <div>
+              <label for="email-input" class="block text-xs font-semibold font-display mb-2" style="color: oklch(0.60 0.008 250);">
+                Your email address
+              </label>
+              <input
+                id="email-input"
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="researcher@email.com"
+                class="w-full px-4 py-3 rounded-lg border font-display text-sm text-surface-950 focus:outline-none transition-colors duration-150"
+                style="background: oklch(0.155 0.009 250); border-color: oklch(0.27 0.010 250); placeholder-color: oklch(0.46 0.008 250);"
+                onfocus="this.style.borderColor='oklch(0.62 0.16 192 / 0.7)'"
+                onblur="this.style.borderColor='oklch(0.27 0.010 250)'"
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full py-3.5 rounded-lg font-bold font-display text-sm transition-colors duration-150"
+              style="background: oklch(0.62 0.16 192); color: oklch(0.10 0.008 250);"
+              onmouseover="this.style.background='oklch(0.54 0.15 192)'"
+              onmouseout="this.style.background='oklch(0.62 0.16 192)'">
+              Send me the weekly digest
+            </button>
+          </form>
+          <p class="mt-4 text-xs font-display text-center" style="color: oklch(0.46 0.008 250);">
+            No spam. We never sell your data. Cancel anytime.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -392,41 +504,66 @@ import Base from '../layouts/Base.astro';
   ═══════════════════════════════════════════════════════════ -->
   <section id="cta" class="relative py-24 md:py-32 overflow-hidden">
 
-    <!-- Gradient background -->
+    <!-- Layered gradient background — distinct from hero -->
     <div class="absolute inset-0" style="
       background:
-        radial-gradient(ellipse at 20% 50%, oklch(0.62 0.16 192 / 0.20), transparent 56%),
-        radial-gradient(ellipse at 80% 30%, oklch(0.74 0.16 75 / 0.10), transparent 50%),
-        linear-gradient(135deg, oklch(0.13 0.010 250), oklch(0.11 0.008 250));
+        radial-gradient(ellipse at 75% 30%, oklch(0.62 0.16 192 / 0.18), transparent 52%),
+        radial-gradient(ellipse at 15% 70%, oklch(0.74 0.16 75 / 0.09), transparent 48%),
+        linear-gradient(150deg, oklch(0.12 0.009 252), oklch(0.10 0.007 248));
     "></div>
-    <div class="absolute inset-0 bg-dot-grid opacity-40"></div>
+    <div class="absolute inset-0 bg-dot-grid opacity-35"></div>
 
-    <!-- Top rule -->
-    <div class="absolute top-0 left-0 right-0">
-      <hr class="rule-fade" />
-    </div>
+    <!-- Top fade rule -->
+    <div class="absolute top-0 left-0 right-0"><hr class="rule-fade" /></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-bold tracking-tight font-display text-surface-950 leading-tight mb-6">
-          Stop googling. Start reading science.
+
+        <!-- Eyebrow -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-brand-500/30 bg-brand-500/10 text-brand-400 font-display mb-8">
+          Free forever
+        </div>
+
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-display text-surface-950 leading-tight mb-6">
+          Stop googling.<br class="hidden sm:block"/>
+          Start reading science.
         </h2>
-        <p class="text-lg md:text-xl text-surface-800/60 leading-relaxed font-body mb-10 max-w-xl mx-auto">
-          Our free library gives you research-grade peptide knowledge — no subscription, no login, no gatekeeping.
+        <p class="text-lg md:text-xl leading-relaxed font-body mb-10 max-w-lg mx-auto" style="color: oklch(0.65 0.008 250);">
+          Six deep research profiles, 180+ cited studies, and a weekly digest of new findings — all free, no account needed.
         </p>
-        <a href="#guides"
-           class="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold font-display text-base transition-colors duration-150"
-           style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);"
-           onmouseover="this.style.background='oklch(0.52 0.15 192)'"
-           onmouseout="this.style.background='oklch(0.62 0.16 192)'">
-          Open the research library
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
-        <p class="mt-5 text-sm text-surface-800/40 font-display">Free forever. No account required.</p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/blog"
+             class="inline-flex items-center gap-2.5 px-8 py-4 rounded-lg font-bold font-display text-base transition-colors duration-150"
+             style="background: oklch(0.62 0.16 192); color: oklch(0.10 0.008 250);"
+             onmouseover="this.style.background='oklch(0.54 0.15 192)'"
+             onmouseout="this.style.background='oklch(0.62 0.16 192)'">
+            Open the research library
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-5 h-5 shrink-0" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a href="#newsletter"
+             class="inline-flex items-center gap-2 text-sm font-semibold font-display transition-colors duration-150"
+             style="color: oklch(0.65 0.008 250);"
+             onmouseover="this.style.color='oklch(0.86 0.006 250)'"
+             onmouseout="this.style.color='oklch(0.65 0.008 250)'">
+            Or subscribe to the weekly digest →
+          </a>
+        </div>
+
+        <p class="mt-6 text-xs font-display" style="color: oklch(0.46 0.008 250);">
+          No account. No credit card. No prescription.
+        </p>
       </div>
     </div>
   </section>
 
 </Base>
+
+<style>
+  /* Hover state for primary CTA — can't use Tailwind hover on inline-styled elements */
+  .cta-primary:hover {
+    background: oklch(0.54 0.15 192) !important;
+  }
+</style>

@@ -18,8 +18,18 @@ const formattedDate = post.data.pubDate
   : null;
 
 const tags = post.data.tags ?? [];
+
+// Dynamic reading time — approx 220 words per minute
+const wordCount = post.body?.split(/\s+/).length ?? 0;
+const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
+const readingTime = `${readingMinutes} min read`;
 ---
-<Base title={`${post.data.title} — PeptideLab`} description={post.data.description}>
+<Base
+  title={`${post.data.title} — HelixVault`}
+  description={post.data.description}
+  pageType="article"
+  pubDate={post.data.pubDate}
+>
 
   <!-- Article hero -->
   <section class="relative pt-16 pb-10 md:pt-24 md:pb-14 overflow-hidden">
@@ -80,7 +90,7 @@ const tags = post.data.tags ?? [];
             </svg>
           </div>
           <div>
-            <p class="text-xs font-display font-semibold text-surface-950">PeptideLab Research Team</p>
+            <p class="text-xs font-display font-semibold text-surface-950">HelixVault Research Team</p>
             {formattedDate && (
               <time class="text-xs font-display text-surface-800/40">{formattedDate}</time>
             )}
@@ -91,7 +101,7 @@ const tags = post.data.tags ?? [];
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
-          12 min read
+          {readingTime}
         </div>
         <!-- Research-only badge -->
         <span class="ml-auto inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold font-display border"
