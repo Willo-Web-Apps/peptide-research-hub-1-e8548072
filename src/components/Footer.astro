@@ -1,11 +1,57 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="border-t border-surface-200 py-10 mt-auto">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm font-semibold text-surface-900 font-display">Untitled Business</p>
-      <p class="text-sm text-surface-800/50">&copy; {year} Untitled Business. All rights reserved.</p>
+<footer class="border-t border-surface-200/20 bg-surface-50 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand column -->
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center gap-2.5 mb-4">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center shrink-0" style="background: oklch(0.62 0.16 192 / 0.2); border: 1px solid oklch(0.62 0.16 192 / 0.4);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.16 192)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+              <path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5"/>
+              <path d="M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082"/>
+            </svg>
+          </div>
+          <span class="text-base font-bold tracking-tight text-surface-950 font-display">PeptideLab</span>
+        </a>
+        <p class="text-sm text-surface-800/50 leading-relaxed font-body max-w-xs">
+          Research-grade peptide guides written for curious, health-conscious adults. Not medical advice. Always consult your physician.
+        </p>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <p class="text-xs font-semibold tracking-widest uppercase text-surface-800/40 font-display mb-4">Resources</p>
+        <ul class="space-y-3">
+          <li><a href="/blog" class="text-sm font-display text-surface-800/60 hover:text-surface-950 transition-colors">Research Library</a></li>
+          <li><a href="#guides" class="text-sm font-display text-surface-800/60 hover:text-surface-950 transition-colors">Peptide Guides</a></li>
+          <li><a href="#newsletter" class="text-sm font-display text-surface-800/60 hover:text-surface-950 transition-colors">Weekly Digest</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <p class="text-xs font-semibold tracking-widest uppercase text-surface-800/40 font-display mb-4">Legal</p>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-sm font-display text-surface-800/60 hover:text-surface-950 transition-colors">Disclaimer</a></li>
+          <li><a href="#" class="text-sm font-display text-surface-800/60 hover:text-surface-950 transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="text-sm font-display text-surface-800/60 hover:text-surface-950 transition-colors">Terms of Use</a></li>
+        </ul>
+      </div>
+
     </div>
+
+    <hr class="rule-fade mb-8" />
+
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <p class="text-xs text-surface-800/40 font-display">&copy; {year} PeptideLab. All rights reserved.</p>
+      <p class="text-xs text-surface-800/35 font-display max-w-sm text-right">
+        For informational and educational purposes only. Not a substitute for professional medical advice.
+      </p>
+    </div>
+
   </div>
 </footer>

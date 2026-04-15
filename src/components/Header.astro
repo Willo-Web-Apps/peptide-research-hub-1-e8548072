@@ -1,11 +1,40 @@
 ---
 ---
-<header class="sticky top-0 z-50 border-b border-surface-200 bg-surface-50/80 backdrop-blur-lg">
+<header class="sticky top-0 z-50 border-b border-surface-200/20 bg-surface-50/80 backdrop-blur-lg">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="text-lg font-bold tracking-tight text-surface-900 font-display">Untitled Business</a>
-    <div class="flex items-center gap-6">
-      <a href="/blog" class="text-sm font-medium text-surface-800/60 hover:text-surface-900 transition-colors">Blog</a>
-      <a href="#cta" class="text-sm font-semibold bg-brand-500 text-white px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors">Get Started</a>
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="w-7 h-7 rounded-md flex items-center justify-center shrink-0" style="background: oklch(0.62 0.16 192 / 0.2); border: 1px solid oklch(0.62 0.16 192 / 0.4);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.16 192)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+          <path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5"/>
+          <path d="M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082"/>
+        </svg>
+      </div>
+      <span class="text-base font-bold tracking-tight text-surface-950 font-display group-hover:text-brand-400 transition-colors">PeptideLab</span>
+    </a>
+
+    <!-- Nav links -->
+    <div class="hidden md:flex items-center gap-7">
+      <a href="/blog" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Research Library</a>
+      <a href="#guides" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Guides</a>
+      <a href="#newsletter" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Newsletter</a>
     </div>
+
+    <!-- CTA -->
+    <div class="flex items-center gap-3">
+      <a href="#newsletter"
+         class="text-sm font-semibold font-display px-4 py-2 rounded-lg transition-colors duration-150 border border-surface-200/30 text-surface-900 hover:border-brand-500/40 hover:text-brand-400 hidden sm:inline-flex">
+        Get digest
+      </a>
+      <a href="#guides"
+         class="text-sm font-semibold font-display px-4 py-2 rounded-lg transition-colors duration-150"
+         style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);"
+         onmouseover="this.style.background='oklch(0.52 0.15 192)'"
+         onmouseout="this.style.background='oklch(0.62 0.16 192)'">
+        Browse guides
+      </a>
+    </div>
+
   </nav>
 </header>
