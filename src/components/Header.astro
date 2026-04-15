@@ -6,35 +6,104 @@
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2.5 group">
       <div class="w-7 h-7 rounded-md flex items-center justify-center shrink-0" style="background: oklch(0.62 0.16 192 / 0.2); border: 1px solid oklch(0.62 0.16 192 / 0.4);">
+        <!-- Helix/DNA icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.16 192)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
           <path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5"/>
           <path d="M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082"/>
         </svg>
       </div>
-      <span class="text-base font-bold tracking-tight text-surface-950 font-display group-hover:text-brand-400 transition-colors">PeptideLab</span>
+      <span class="text-base font-bold tracking-tight text-surface-950 font-display group-hover:text-brand-400 transition-colors">HelixVault</span>
     </a>
 
-    <!-- Nav links -->
+    <!-- Desktop nav links -->
     <div class="hidden md:flex items-center gap-7">
       <a href="/blog" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Research Library</a>
-      <a href="#guides" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Guides</a>
-      <a href="#newsletter" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Newsletter</a>
+      <a href="/#guides" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Guides</a>
+      <a href="/#newsletter" class="text-sm font-medium font-display text-surface-800/60 hover:text-surface-950 transition-colors">Newsletter</a>
     </div>
 
-    <!-- CTA -->
+    <!-- Desktop CTA + mobile hamburger -->
     <div class="flex items-center gap-3">
-      <a href="#newsletter"
+      <!-- Desktop CTAs -->
+      <a href="/#newsletter"
          class="text-sm font-semibold font-display px-4 py-2 rounded-lg transition-colors duration-150 border border-surface-200/30 text-surface-900 hover:border-brand-500/40 hover:text-brand-400 hidden sm:inline-flex">
         Get digest
       </a>
-      <a href="#guides"
-         class="text-sm font-semibold font-display px-4 py-2 rounded-lg transition-colors duration-150"
+      <a href="/blog"
+         class="text-sm font-semibold font-display px-4 py-2 rounded-lg transition-colors duration-150 hidden sm:inline-flex"
          style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);"
          onmouseover="this.style.background='oklch(0.52 0.15 192)'"
          onmouseout="this.style.background='oklch(0.62 0.16 192)'">
         Browse guides
       </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        aria-label="Toggle menu"
+        class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-surface-200/30 text-surface-800/60 hover:text-surface-950 hover:border-surface-200/60 transition-colors"
+      >
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5 hidden">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
 
   </nav>
+
+  <!-- Mobile nav drawer -->
+  <div id="mobile-nav" class="hidden md:hidden border-t border-surface-200/20 bg-surface-50/95 backdrop-blur-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+      <a href="/blog" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium font-display text-surface-800/70 hover:text-surface-950 hover:bg-surface-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+        </svg>
+        Research Library
+      </a>
+      <a href="/#guides" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium font-display text-surface-800/70 hover:text-surface-950 hover:bg-surface-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082" />
+        </svg>
+        Guides
+      </a>
+      <a href="/#newsletter" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium font-display text-surface-800/70 hover:text-surface-950 hover:bg-surface-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        </svg>
+        Newsletter
+      </a>
+      <div class="mt-3 pt-3 border-t border-surface-200/20">
+        <a href="/blog"
+           class="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold font-display text-sm transition-colors duration-150"
+           style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);">
+          Browse all guides
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('hidden') === false;
+    if (isOpen) {
+      nav?.classList.remove('hidden');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+    } else {
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    }
+  });
+</script>

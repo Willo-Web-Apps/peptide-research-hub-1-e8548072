@@ -5,33 +5,251 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
   (a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)
 );
+
+// Tag color map
+const tagColors: Record<string, string> = {
+  'Healing & Recovery': 'oklch(0.62 0.16 192)',
+  'Tissue Repair': 'oklch(0.62 0.16 192)',
+  'Metabolic Health': 'oklch(0.74 0.16 75)',
+  'Longevity': 'oklch(0.65 0.14 145)',
+  'Cognition': 'oklch(0.72 0.14 280)',
+  'Body Composition': 'oklch(0.68 0.16 30)',
+};
 ---
-<Base title="Blog">
-  <section class="py-16 md:py-20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-surface-900 font-display mb-10">Blog</h1>
-      {posts.length === 0 && (
-        <p class="text-surface-800/50">No posts yet — check back soon.</p>
-      )}
-      <ul class="space-y-8">
-        {posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.id}`} class="group block">
-              <h2 class="text-xl font-semibold text-surface-900 group-hover:text-brand-500 transition-colors">
-                {post.data.title}
-              </h2>
-              {post.data.description && (
-                <p class="mt-2 text-surface-800/60 leading-relaxed">{post.data.description}</p>
-              )}
-              {post.data.pubDate && (
-                <time class="mt-2 block text-sm text-surface-800/40">
-                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </time>
-              )}
-            </a>
-          </li>
-        ))}
-      </ul>
+<Base
+  title="Research Library — PeptideLab | Peer-Reviewed Peptide Guides"
+  description="Browse our complete library of research-grade peptide guides. In-depth profiles on BPC-157, TB-500, Semaglutide, CJC-1295, and more — backed by peer-reviewed science."
+>
+
+  <!-- Page hero -->
+  <section class="relative pt-16 pb-14 md:pt-24 md:pb-20 overflow-hidden">
+    <div class="absolute inset-0" style="
+      background:
+        radial-gradient(ellipse at 20% 60%, oklch(0.62 0.16 192 / 0.10), transparent 50%),
+        radial-gradient(ellipse at 80% 20%, oklch(0.74 0.16 75 / 0.06), transparent 48%),
+        linear-gradient(to bottom, oklch(0.13 0.010 250), oklch(0.11 0.008 250));
+    "></div>
+    <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, transparent 0%, oklch(0.62 0.16 192 / 0.6) 35%, oklch(0.74 0.16 75 / 0.7) 65%, transparent 100%);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+
+        <div class="animate-slide-up flex items-center gap-2 mb-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase border border-brand-500/30 bg-brand-500/10 text-brand-400 font-display">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse-glow"></span>
+            Continuously updated
+          </span>
+        </div>
+
+        <h1 class="animate-slide-up delay-100 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-display text-surface-950 leading-tight mb-6">
+          The Peptide<br/>Research Library
+        </h1>
+
+        <p class="animate-slide-up delay-200 text-lg md:text-xl text-surface-800/60 leading-relaxed font-body max-w-2xl mb-8">
+          Every guide covers mechanism, human trial evidence, protocol data, safety signals, and legal status — written from primary literature, never forum hearsay.
+        </p>
+
+        <!-- Search hint -->
+        <div class="animate-slide-up delay-300 flex flex-wrap gap-3">
+          <span class="text-sm font-display text-surface-800/40">Browse by goal:</span>
+          {['Healing & Recovery', 'Metabolic Health', 'Longevity', 'Body Composition', 'Cognition'].map((goal) => (
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold font-display cursor-default border border-surface-200/20 text-surface-800/50 hover:border-brand-500/30 hover:text-brand-400 transition-colors">
+              {goal}
+            </span>
+          ))}
+        </div>
+
+      </div>
     </div>
   </section>
+
+  <!-- Stats strip -->
+  <div class="border-y border-surface-200/20 bg-surface-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <div class="flex flex-wrap gap-6 md:gap-12 items-center">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="oklch(0.62 0.16 192)" class="w-4 h-4">
+              <path d="M10.75 16.82A7.462 7.462 0 0 1 10 17c-.85 0-1.673-.118-2.452-.339.584.682 1.417 1.089 2.452 1.089s1.868-.407 2.452-1.09c-.779.221-1.602.34-2.452.34Z" />
+              <path fill-rule="evenodd" d="M10 1a6 6 0 0 0-6 6v.9c0 .804-.294 1.575-.824 2.17l-.93 1.068A2 2 0 0 0 3.728 14H16.27a2 2 0 0 0 1.482-3.362l-.93-1.068A3.25 3.25 0 0 1 16 7.9V7a6 6 0 0 0-6-6Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">{posts.length} guides</p>
+            <p class="text-xs font-display text-surface-800/40">in the library</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="oklch(0.62 0.16 192)" class="w-4 h-4">
+              <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v11.75A2.75 2.75 0 0 0 16.75 18h-12A2.75 2.75 0 0 1 2 15.25V3.5Zm3.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5ZM5 5.75A.75.75 0 0 1 5.75 5h4.5a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 8.25v-2.5Z" clip-rule="evenodd" />
+              <path d="M16.5 6.5h-1v8.75a1.25 1.25 0 1 0 2.5 0V8a1.5 1.5 0 0 0-1.5-1.5Z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">180+ studies</p>
+            <p class="text-xs font-display text-surface-800/40">peer-reviewed sources cited</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="oklch(0.62 0.16 192)" class="w-4 h-4">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-bold font-display" style="color: oklch(0.62 0.16 192);">Weekly updates</p>
+            <p class="text-xs font-display text-surface-800/40">as new trials publish</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 ml-auto">
+          <span class="inline-flex items-center gap-1.5 text-xs font-display font-semibold" style="color: oklch(0.74 0.16 75);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
+              <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
+            </svg>
+            Free to read — no paywall
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guide grid -->
+  <section class="py-16 md:py-24 bg-surface-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {posts.length === 0 ? (
+        <div class="text-center py-24">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: oklch(0.62 0.16 192 / 0.12);">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="oklch(0.62 0.16 192)" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+            </svg>
+          </div>
+          <p class="text-surface-800/50 font-display text-lg">Guides coming soon — check back shortly.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post, i) => {
+            const primaryTag = post.data.tags?.[0] ?? 'Research';
+            const tagColor = tagColors[primaryTag] ?? 'oklch(0.62 0.16 192)';
+            const formattedDate = post.data.pubDate
+              ? post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+              : null;
+
+            return (
+              <a
+                href={`/blog/${post.id}`}
+                class={`group block rounded-2xl border border-surface-200/30 bg-surface-100 p-7 hover:border-brand-500/40 transition-colors duration-200 animate-slide-up`}
+                style={`animation-delay: ${(i % 3) * 0.08}s`}
+              >
+                <!-- Tag -->
+                <div class="flex items-center justify-between mb-5">
+                  <span
+                    class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                    style={`background: ${tagColor.replace(')', ' / 0.12)')}; color: ${tagColor};`}
+                  >
+                    {primaryTag}
+                  </span>
+                  {formattedDate && (
+                    <time class="text-xs font-display text-surface-800/35">{formattedDate}</time>
+                  )}
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-xl font-bold font-display text-surface-950 mb-3 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+                  {post.data.title}
+                </h2>
+
+                <!-- Description -->
+                {post.data.description && (
+                  <p class="text-sm text-surface-800/55 leading-relaxed font-body line-clamp-3 mb-5">
+                    {post.data.description}
+                  </p>
+                )}
+
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-4 border-t border-surface-200/20">
+                  <span class="text-xs font-display text-surface-800/40">
+                    {post.data.tags?.slice(1, 3).join(' · ')}
+                  </span>
+                  <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+                    Read guide
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+
+          <!-- "Coming soon" teaser cards to fill grid -->
+          {[
+            { name: 'CJC-1295', tag: 'Longevity', desc: 'GHRH analogue that sustainably elevates growth hormone and IGF-1 — popular for body composition and sleep.' },
+            { name: 'Ipamorelin', tag: 'Body Composition', desc: 'Selective growth hormone secretagogue with a clean side-effect profile compared to older GH peptides.' },
+            { name: 'Epithalon', tag: 'Longevity', desc: 'Tetrapeptide studied for telomere extension and circadian rhythm regulation in aging research.' },
+          ].map((teaser, i) => (
+            <div
+              class="group relative block rounded-2xl border border-surface-200/15 bg-surface-100/50 p-7 overflow-hidden cursor-default"
+              style={`animation-delay: ${(posts.length + i) * 0.08}s`}
+            >
+              <!-- Blur overlay -->
+              <div class="absolute inset-0 backdrop-blur-[1px] rounded-2xl z-10 flex items-center justify-center"
+                   style="background: oklch(0.155 0.009 250 / 0.3);">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold font-display border border-surface-200/30 text-surface-800/60"
+                      style="background: oklch(0.11 0.008 250 / 0.9);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3">
+                    <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
+                  </svg>
+                  Guide coming soon
+                </span>
+              </div>
+              <div class="flex items-center justify-between mb-5 opacity-50">
+                <span class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                      style="background: oklch(0.62 0.16 192 / 0.10); color: oklch(0.62 0.16 192 / 0.5);">
+                  {teaser.tag}
+                </span>
+              </div>
+              <h2 class="text-xl font-bold font-display text-surface-950/50 mb-3 leading-snug">{teaser.name}</h2>
+              <p class="text-sm text-surface-800/30 leading-relaxed font-body line-clamp-3 mb-5">{teaser.desc}</p>
+              <div class="flex items-center justify-between pt-4 border-t border-surface-200/10">
+                <span class="text-xs font-display text-surface-800/20">In progress</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="py-20 border-t border-surface-200/20 bg-surface-100">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">Weekly digest</p>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight font-display text-surface-950 mb-4">
+        New peptide trials, distilled every week.
+      </h2>
+      <p class="text-base text-surface-800/55 leading-relaxed font-body mb-8 max-w-sm mx-auto">
+        We scan PubMed so you don't have to. Plain-English summaries of the most important new research, every Tuesday.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#" method="POST">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="your@email.com"
+          class="flex-1 px-4 py-3 rounded-lg border border-surface-200/40 bg-surface-50 text-surface-950 placeholder-surface-800/40 font-display text-sm focus:outline-none focus:border-brand-500/60 transition-colors"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 rounded-lg font-semibold font-display text-sm transition-colors duration-150 shrink-0"
+          style="background: oklch(0.62 0.16 192); color: oklch(0.11 0.008 250);"
+        >
+          Send me research
+        </button>
+      </form>
+      <p class="mt-3 text-xs text-surface-800/35 font-display">Free. Unsubscribe anytime. We never sell your data.</p>
+    </div>
+  </section>
+
 </Base>
