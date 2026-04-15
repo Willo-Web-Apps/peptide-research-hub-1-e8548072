@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 
 /* -----------------------------------------------------------------------
-   Design Tokens — Peptide Research Hub
-   Dark theme: deep charcoal + teal brand accent
-   Fonts: Space Grotesk (display) + Crimson Pro (editorial body)
+   Design Tokens — PeptideLab
+   Dark theme: deep charcoal + teal brand accent + warm amber
+   Fonts: Space Grotesk (display/UI) + Crimson Pro (editorial body)
    ----------------------------------------------------------------------- */
 
 @theme {
@@ -13,71 +13,273 @@
   --font-body: 'Crimson Pro', Georgia, ui-serif, serif;
 
   /* Brand color scale — teal/cyan (science, precision, clarity) */
-  --color-brand-50: oklch(0.97 0.03 192);
+  --color-brand-50:  oklch(0.97 0.03 192);
   --color-brand-100: oklch(0.92 0.06 192);
   --color-brand-200: oklch(0.84 0.10 192);
+  --color-brand-300: oklch(0.76 0.13 192);
   --color-brand-400: oklch(0.72 0.14 192);
   --color-brand-500: oklch(0.62 0.16 192);
   --color-brand-600: oklch(0.52 0.15 192);
+  --color-brand-700: oklch(0.42 0.13 192);
 
-  /* Accent — warm amber for highlights / CTAs */
+  /* Accent — warm amber for CTAs and highlights */
   --color-accent-400: oklch(0.82 0.14 75);
   --color-accent-500: oklch(0.74 0.16 75);
   --color-accent-600: oklch(0.64 0.16 75);
 
-  /* Surface colors — dark theme (near-black → near-white) */
-  --color-surface-50: oklch(0.11 0.008 250);
-  --color-surface-100: oklch(0.15 0.009 250);
-  --color-surface-200: oklch(0.20 0.010 250);
-  --color-surface-800: oklch(0.78 0.010 250);
-  --color-surface-900: oklch(0.88 0.006 250);
+  /* Surface scale — true dark theme
+     50  = near-black background
+     100 = slightly lighter card surface
+     200 = borders / dividers
+     800 = muted body text
+     900 = secondary headings / labels
+     950 = primary headings / near-white text
+  */
+  --color-surface-50:  oklch(0.11 0.008 250);
+  --color-surface-100: oklch(0.155 0.009 250);
+  --color-surface-150: oklch(0.185 0.009 250);
+  --color-surface-200: oklch(0.22 0.010 250);
+  --color-surface-300: oklch(0.30 0.010 250);
+  --color-surface-800: oklch(0.75 0.010 250);
+  --color-surface-900: oklch(0.86 0.006 250);
   --color-surface-950: oklch(0.95 0.004 250);
 }
 
-/* Page-load animations — CSS only, no JS required */
+/* -----------------------------------------------------------------------
+   Page-load animations — CSS only, no JS required
+   ----------------------------------------------------------------------- */
+
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.62 0.16 192 / 0.4); }
-  50% { box-shadow: 0 0 0 8px oklch(0.62 0.16 192 / 0); }
+  0%, 100% { box-shadow: 0 0 0 0   oklch(0.62 0.16 192 / 0.5); }
+  50%       { box-shadow: 0 0 0 6px oklch(0.62 0.16 192 / 0);   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.65s ease-out both;
-}
+.animate-fade-in    { animation: fadeIn    0.6s  ease-out both; }
+.animate-slide-up   { animation: slideUp   0.65s ease-out both; }
+.animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2.4s ease-in-out infinite;
-}
+/* Stagger delays */
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-600 { animation-delay: 0.60s; }
 
-/* Staggered animation delays for cascading reveals */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
+/* -----------------------------------------------------------------------
+   Background utilities
+   ----------------------------------------------------------------------- */
 
-/* Dot-grid background utility */
+/* Dot-grid texture — teal dots on dark surface */
 .bg-dot-grid {
-  background-image: radial-gradient(circle, oklch(0.62 0.16 192 / 0.12) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(
+    circle,
+    oklch(0.62 0.16 192 / 0.10) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
 }
 
-/* Subtle horizontal rule with gradient */
+/* Gradient rule / divider */
 .rule-fade {
   border: none;
   height: 1px;
-  background: linear-gradient(to right, transparent, oklch(0.62 0.16 192 / 0.4), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(0.62 0.16 192 / 0.35),
+    transparent
+  );
+}
+
+/* -----------------------------------------------------------------------
+   Prose — dark-theme typography for blog articles
+   ----------------------------------------------------------------------- */
+
+.prose-dark {
+  color: oklch(0.80 0.009 250);
+  font-family: 'Crimson Pro', Georgia, ui-serif, serif;
+  font-size: 1.125rem;  /* 18px — comfortable long-form reading */
+  line-height: 1.75;
+}
+
+.prose-dark h1,
+.prose-dark h2,
+.prose-dark h3,
+.prose-dark h4 {
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: oklch(0.95 0.004 250);
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  line-height: 1.2;
+}
+
+.prose-dark h2 {
+  font-size: 1.5rem;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid oklch(0.22 0.010 250);
+}
+
+.prose-dark h3 {
+  font-size: 1.2rem;
+  color: oklch(0.90 0.006 250);
+}
+
+.prose-dark p {
+  margin-bottom: 1.25em;
+}
+
+.prose-dark strong {
+  color: oklch(0.92 0.005 250);
+  font-weight: 600;
+}
+
+.prose-dark em {
+  color: oklch(0.82 0.009 250);
+  font-style: italic;
+}
+
+.prose-dark a {
+  color: oklch(0.72 0.14 192);
+  text-decoration: underline;
+  text-decoration-color: oklch(0.72 0.14 192 / 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.prose-dark a:hover {
+  color: oklch(0.84 0.13 192);
+  text-decoration-color: oklch(0.84 0.13 192 / 0.6);
+}
+
+.prose-dark ul,
+.prose-dark ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+.prose-dark ul { list-style-type: disc; }
+.prose-dark ol { list-style-type: decimal; }
+
+.prose-dark li {
+  margin-bottom: 0.4em;
+  padding-left: 0.25em;
+}
+
+.prose-dark ul > li::marker {
+  color: oklch(0.62 0.16 192 / 0.7);
+}
+
+.prose-dark ol > li::marker {
+  color: oklch(0.62 0.16 192 / 0.7);
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.prose-dark blockquote {
+  border-left: 3px solid oklch(0.62 0.16 192 / 0.5);
+  padding-left: 1.25em;
+  margin-left: 0;
+  color: oklch(0.70 0.010 250);
+  font-style: italic;
+}
+
+.prose-dark hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(0.62 0.16 192 / 0.3),
+    transparent
+  );
+  margin: 2.5em 0;
+}
+
+/* Tables */
+.prose-dark table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  margin-bottom: 1.5em;
+}
+
+.prose-dark thead {
+  background: oklch(0.155 0.009 250);
+  border-bottom: 1px solid oklch(0.22 0.010 250);
+}
+
+.prose-dark th {
+  padding: 0.6em 1em;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: oklch(0.72 0.14 192);
+}
+
+.prose-dark td {
+  padding: 0.65em 1em;
+  border-bottom: 1px solid oklch(0.22 0.010 250 / 0.5);
+  color: oklch(0.80 0.009 250);
+  vertical-align: top;
+}
+
+.prose-dark tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prose-dark tbody tr:hover td {
+  background: oklch(0.155 0.009 250 / 0.6);
+}
+
+/* Code */
+.prose-dark code {
+  font-size: 0.875em;
+  background: oklch(0.185 0.009 250);
+  border: 1px solid oklch(0.22 0.010 250);
+  border-radius: 0.25em;
+  padding: 0.15em 0.4em;
+  color: oklch(0.82 0.10 192);
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+}
+
+/* First h2 after article start — no top margin */
+.prose-dark > h2:first-child,
+.prose-dark > h1:first-child {
+  margin-top: 0;
+}
+
+/* -----------------------------------------------------------------------
+   Utility: tabular numbers for metrics / stats
+   ----------------------------------------------------------------------- */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* -----------------------------------------------------------------------
+   Mobile navigation overlay
+   ----------------------------------------------------------------------- */
+#mobile-nav {
+  display: none;
+}
+#mobile-nav.open {
+  display: flex;
 }
