@@ -54,7 +54,7 @@ import Base from '../layouts/Base.astro';
         <!-- Subheadline -->
         <p class="animate-slide-up delay-200 mt-7 text-lg md:text-xl leading-relaxed font-body font-light max-w-xl"
            style="color: oklch(0.76 0.008 250);">
-          Six peer-reviewed guides on BPC-157, TB-500, Semaglutide, and more — mechanisms, trial data, and safety signals from primary literature. Zero forum speculation.
+          Mechanisms, trial data, safety signals, and legal context — for every major research peptide, drawn from primary literature. No forum hearsay. No supplements sold.
         </p>
 
         <!-- CTAs -->
@@ -103,11 +103,11 @@ import Base from '../layouts/Base.astro';
       </p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 text-center">
         <div>
-          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">6+</p>
+          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">9</p>
           <p class="mt-1.5 text-sm font-display" style="color: oklch(0.60 0.008 250);">In-depth peptide profiles</p>
         </div>
         <div>
-          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">180+</p>
+          <p class="text-3xl md:text-4xl font-bold font-display tabular-nums" style="color: oklch(0.62 0.16 192);">250+</p>
           <p class="mt-1.5 text-sm font-display" style="color: oklch(0.60 0.008 250);">Peer-reviewed studies cited</p>
         </div>
         <div>
@@ -247,13 +247,13 @@ import Base from '../layouts/Base.astro';
 
       <div class="text-center max-w-xl mx-auto mb-20">
         <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">
-          How to use this site
+          How it works
         </p>
         <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display text-surface-950 leading-tight">
-          From first search to informed decision
+          Research in hand. Doctor's visit ready.
         </h2>
         <p class="mt-4 text-base font-body leading-relaxed" style="color: oklch(0.62 0.008 250);">
-          Three steps. No signup. No credit card. No barriers.
+          Three steps from curious to genuinely informed — no account, no paywall, no barriers.
         </p>
       </div>
 
@@ -272,7 +272,7 @@ import Base from '../layouts/Base.astro';
           <div>
             <h3 class="text-xl font-bold font-display text-surface-950 mb-2">Find your peptide</h3>
             <p class="text-base leading-relaxed font-body" style="color: oklch(0.62 0.008 250);">
-              Browse by name or filter by goal — healing, metabolic health, cognition, longevity. Six comprehensive profiles, with more publishing regularly.
+              Browse by name or filter by goal — healing, metabolic health, cognition, longevity. Nine comprehensive profiles, with more publishing regularly.
             </p>
           </div>
         </div>
@@ -311,6 +311,146 @@ import Base from '../layouts/Base.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════
+       GOAL MATRIX — peptide-by-goal reference
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-surface-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs font-semibold tracking-widest uppercase font-display mb-4" style="color: oklch(0.62 0.16 192);">
+          Quick reference
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display text-surface-950 leading-tight">
+          Which peptide is researched for what?
+        </h2>
+        <p class="mt-4 text-base font-body leading-relaxed" style="color: oklch(0.62 0.008 250);">
+          At a glance — research focus areas for each compound in our library. Click any peptide for the full evidence review.
+        </p>
+      </div>
+
+      <!-- Matrix table — desktop visible, scrollable on mobile -->
+      <div class="overflow-x-auto -mx-4 px-4">
+        <div class="min-w-[680px]">
+
+          <!-- Column headers -->
+          <div class="grid gap-px mb-px" style="grid-template-columns: 1fr repeat(5, minmax(0,1fr));">
+            <div class="px-4 py-3 text-xs font-semibold font-display tracking-widest uppercase" style="color: oklch(0.50 0.008 250);">Peptide</div>
+            <div class="px-4 py-3 text-xs font-semibold font-display text-center" style="color: oklch(0.62 0.16 192);">Healing</div>
+            <div class="px-4 py-3 text-xs font-semibold font-display text-center" style="color: oklch(0.74 0.16 75);">Metabolic</div>
+            <div class="px-4 py-3 text-xs font-semibold font-display text-center" style="color: oklch(0.65 0.14 145);">Longevity</div>
+            <div class="px-4 py-3 text-xs font-semibold font-display text-center" style="color: oklch(0.72 0.14 280);">Cognition</div>
+            <div class="px-4 py-3 text-xs font-semibold font-display text-center" style="color: oklch(0.68 0.16 30);">Composition</div>
+          </div>
+
+          <!-- Matrix rows -->
+          {[
+            { name: 'BPC-157', href: '/blog/bpc-157-complete-guide', healing: 'strong', metabolic: null, longevity: null, cognition: 'mild', composition: null },
+            { name: 'TB-500', href: '/blog/tb-500-thymosin-beta-4', healing: 'strong', metabolic: null, longevity: 'mild', cognition: null, composition: null },
+            { name: 'Semaglutide', href: '/blog/semaglutide-research-guide', healing: null, metabolic: 'strong', longevity: 'mild', cognition: null, composition: 'strong' },
+            { name: 'CJC-1295', href: '/blog/cjc-1295-research-guide', healing: 'mild', metabolic: null, longevity: 'strong', cognition: null, composition: 'strong' },
+            { name: 'Ipamorelin', href: '/blog/ipamorelin-research-guide', healing: null, metabolic: null, longevity: 'strong', cognition: null, composition: 'strong' },
+            { name: 'GHK-Cu', href: '/blog/ghk-cu-research-guide', healing: 'strong', metabolic: null, longevity: 'mild', cognition: null, composition: null },
+            { name: 'Epithalon', href: '/blog/epithalon-research-guide', healing: null, metabolic: null, longevity: 'strong', cognition: 'mild', composition: null },
+            { name: 'Selank', href: '/blog/selank-research-guide', healing: null, metabolic: null, longevity: null, cognition: 'strong', composition: null },
+            { name: 'PT-141', href: '/blog/pt-141-bremelanotide-guide', healing: null, metabolic: null, longevity: null, cognition: null, composition: 'mild' },
+          ].map((row, i) => (
+            <a
+              href={row.href}
+              class="group grid gap-px border-t transition-colors duration-150 hover:bg-surface-100"
+              style={`grid-template-columns: 1fr repeat(5, minmax(0,1fr)); border-color: oklch(0.22 0.010 250 / 0.4);`}
+            >
+              <div class="px-4 py-4 flex items-center">
+                <span class="text-sm font-bold font-display text-surface-950 group-hover:text-brand-400 transition-colors duration-150">{row.name}</span>
+              </div>
+              <!-- Healing -->
+              <div class="px-4 py-4 flex items-center justify-center">
+                {row.healing === 'strong' && (
+                  <div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: oklch(0.62 0.16 192 / 0.18);">
+                    <div class="w-2.5 h-2.5 rounded-full" style="background: oklch(0.62 0.16 192);"></div>
+                  </div>
+                )}
+                {row.healing === 'mild' && (
+                  <div class="w-2.5 h-2.5 rounded-full border" style="border-color: oklch(0.62 0.16 192 / 0.5); background: oklch(0.62 0.16 192 / 0.15);"></div>
+                )}
+                {!row.healing && <div class="w-4 h-px" style="background: oklch(0.30 0.010 250);"></div>}
+              </div>
+              <!-- Metabolic -->
+              <div class="px-4 py-4 flex items-center justify-center">
+                {row.metabolic === 'strong' && (
+                  <div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: oklch(0.74 0.16 75 / 0.18);">
+                    <div class="w-2.5 h-2.5 rounded-full" style="background: oklch(0.74 0.16 75);"></div>
+                  </div>
+                )}
+                {row.metabolic === 'mild' && (
+                  <div class="w-2.5 h-2.5 rounded-full border" style="border-color: oklch(0.74 0.16 75 / 0.5); background: oklch(0.74 0.16 75 / 0.15);"></div>
+                )}
+                {!row.metabolic && <div class="w-4 h-px" style="background: oklch(0.30 0.010 250);"></div>}
+              </div>
+              <!-- Longevity -->
+              <div class="px-4 py-4 flex items-center justify-center">
+                {row.longevity === 'strong' && (
+                  <div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: oklch(0.65 0.14 145 / 0.18);">
+                    <div class="w-2.5 h-2.5 rounded-full" style="background: oklch(0.65 0.14 145);"></div>
+                  </div>
+                )}
+                {row.longevity === 'mild' && (
+                  <div class="w-2.5 h-2.5 rounded-full border" style="border-color: oklch(0.65 0.14 145 / 0.5); background: oklch(0.65 0.14 145 / 0.15);"></div>
+                )}
+                {!row.longevity && <div class="w-4 h-px" style="background: oklch(0.30 0.010 250);"></div>}
+              </div>
+              <!-- Cognition -->
+              <div class="px-4 py-4 flex items-center justify-center">
+                {row.cognition === 'strong' && (
+                  <div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: oklch(0.72 0.14 280 / 0.18);">
+                    <div class="w-2.5 h-2.5 rounded-full" style="background: oklch(0.72 0.14 280);"></div>
+                  </div>
+                )}
+                {row.cognition === 'mild' && (
+                  <div class="w-2.5 h-2.5 rounded-full border" style="border-color: oklch(0.72 0.14 280 / 0.5); background: oklch(0.72 0.14 280 / 0.15);"></div>
+                )}
+                {!row.cognition && <div class="w-4 h-px" style="background: oklch(0.30 0.010 250);"></div>}
+              </div>
+              <!-- Composition -->
+              <div class="px-4 py-4 flex items-center justify-center">
+                {row.composition === 'strong' && (
+                  <div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: oklch(0.68 0.16 30 / 0.18);">
+                    <div class="w-2.5 h-2.5 rounded-full" style="background: oklch(0.68 0.16 30);"></div>
+                  </div>
+                )}
+                {row.composition === 'mild' && (
+                  <div class="w-2.5 h-2.5 rounded-full border" style="border-color: oklch(0.68 0.16 30 / 0.5); background: oklch(0.68 0.16 30 / 0.15);"></div>
+                )}
+                {!row.composition && <div class="w-4 h-px" style="background: oklch(0.30 0.010 250);"></div>}
+              </div>
+            </a>
+          ))}
+
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="mt-8 flex flex-wrap items-center gap-6 justify-center">
+        <div class="flex items-center gap-2">
+          <div class="w-4 h-4 rounded-full flex items-center justify-center" style="background: oklch(0.62 0.16 192 / 0.18);">
+            <div class="w-2 h-2 rounded-full" style="background: oklch(0.62 0.16 192);"></div>
+          </div>
+          <span class="text-xs font-display" style="color: oklch(0.60 0.008 250);">Primary research focus</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full border" style="border-color: oklch(0.62 0.16 192 / 0.5); background: oklch(0.62 0.16 192 / 0.15);"></div>
+          <span class="text-xs font-display" style="color: oklch(0.60 0.008 250);">Secondary / limited evidence</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-4 h-px" style="background: oklch(0.40 0.010 250);"></div>
+          <span class="text-xs font-display" style="color: oklch(0.60 0.008 250);">Not a research focus</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
        FEATURED PEPTIDES — library preview
   ═══════════════════════════════════════════════════════════ -->
   <section class="py-24 md:py-32 bg-surface-50">
@@ -337,15 +477,18 @@ import Base from '../layouts/Base.astro';
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <!-- BPC-157 -->
         <a href="/blog/bpc-157-complete-guide"
            class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
            style="border-color: oklch(0.22 0.010 250 / 0.5);">
-          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
-               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
-            Healing &amp; Recovery
+          <div class="flex items-center justify-between mb-4">
+            <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                 style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
+              Healing &amp; Recovery
+            </div>
+            <span class="text-xs font-display" style="color: oklch(0.46 0.008 250);">14 studies</span>
           </div>
           <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
             BPC-157
@@ -353,16 +496,22 @@ import Base from '../layouts/Base.astro';
           <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
             Body Protective Compound — strong evidence for tendon, gut, and nerve repair across animal studies.
           </p>
-          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">14 studies reviewed</p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+            Read guide
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
         </a>
 
         <!-- TB-500 -->
         <a href="/blog/tb-500-thymosin-beta-4"
            class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
            style="border-color: oklch(0.22 0.010 250 / 0.5);">
-          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
-               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
-            Tissue Repair
+          <div class="flex items-center justify-between mb-4">
+            <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                 style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
+              Tissue Repair
+            </div>
+            <span class="text-xs font-display" style="color: oklch(0.46 0.008 250);">11 studies</span>
           </div>
           <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
             TB-500
@@ -370,16 +519,22 @@ import Base from '../layouts/Base.astro';
           <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
             Synthetic Thymosin Beta-4 fragment with documented angiogenic and anti-inflammatory properties.
           </p>
-          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">11 studies reviewed</p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+            Read guide
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
         </a>
 
         <!-- Semaglutide -->
         <a href="/blog/semaglutide-research-guide"
            class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
            style="border-color: oklch(0.22 0.010 250 / 0.5);">
-          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
-               style="background: oklch(0.74 0.16 75 / 0.14); color: oklch(0.74 0.16 75);">
-            Metabolic Health
+          <div class="flex items-center justify-between mb-4">
+            <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                 style="background: oklch(0.74 0.16 75 / 0.14); color: oklch(0.74 0.16 75);">
+              Metabolic Health
+            </div>
+            <span class="text-xs font-display" style="color: oklch(0.46 0.008 250);">22 studies</span>
           </div>
           <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
             Semaglutide
@@ -387,16 +542,22 @@ import Base from '../layouts/Base.astro';
           <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
             GLP-1 receptor agonist approved for T2D and obesity — the most-discussed peptide of the decade.
           </p>
-          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">22 studies reviewed</p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+            Read guide
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
         </a>
 
         <!-- CJC-1295 -->
         <a href="/blog/cjc-1295-research-guide"
            class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
            style="border-color: oklch(0.22 0.010 250 / 0.5);">
-          <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display mb-4 tracking-wide"
-               style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
-            Longevity
+          <div class="flex items-center justify-between mb-4">
+            <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                 style="background: oklch(0.65 0.14 145 / 0.14); color: oklch(0.65 0.14 145);">
+              Longevity
+            </div>
+            <span class="text-xs font-display" style="color: oklch(0.46 0.008 250);">9 studies</span>
           </div>
           <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
             CJC-1295
@@ -404,7 +565,56 @@ import Base from '../layouts/Base.astro';
           <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
             GHRH analogue with human pharmacokinetic data showing sustained GH and IGF-1 elevation.
           </p>
-          <p class="text-xs font-display" style="color: oklch(0.46 0.008 250);">9 studies reviewed</p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+            Read guide
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
+        </a>
+
+        <!-- GHK-Cu -->
+        <a href="/blog/ghk-cu-research-guide"
+           class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
+           style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="flex items-center justify-between mb-4">
+            <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                 style="background: oklch(0.62 0.16 192 / 0.14); color: oklch(0.72 0.14 192);">
+              Healing &amp; Recovery
+            </div>
+            <span class="text-xs font-display" style="color: oklch(0.46 0.008 250);">18 studies</span>
+          </div>
+          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+            GHK-Cu
+          </h3>
+          <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
+            Copper tripeptide with robust evidence for collagen synthesis, wound repair, and anti-inflammatory activity.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+            Read guide
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
+        </a>
+
+        <!-- Selank -->
+        <a href="/blog/selank-research-guide"
+           class="group block rounded-2xl border bg-surface-100 p-6 hover:border-brand-500/40 transition-all duration-200 hover:translate-y-[-2px]"
+           style="border-color: oklch(0.22 0.010 250 / 0.5);">
+          <div class="flex items-center justify-between mb-4">
+            <div class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold font-display tracking-wide"
+                 style="background: oklch(0.72 0.14 280 / 0.14); color: oklch(0.72 0.14 280);">
+              Cognition
+            </div>
+            <span class="text-xs font-display" style="color: oklch(0.46 0.008 250);">12 studies</span>
+          </div>
+          <h3 class="text-xl font-bold font-display text-surface-950 mb-2 leading-snug group-hover:text-brand-400 transition-colors duration-150">
+            Selank
+          </h3>
+          <p class="text-sm leading-relaxed font-body mb-4" style="color: oklch(0.58 0.008 250);">
+            Russian-developed heptapeptide with clinical trial data for anxiety reduction and cognitive support.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold font-display text-brand-400 group-hover:gap-2 transition-all duration-150">
+            Read guide
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
         </a>
 
       </div>
@@ -528,7 +738,7 @@ import Base from '../layouts/Base.astro';
           Start reading science.
         </h2>
         <p class="text-lg md:text-xl leading-relaxed font-body mb-10 max-w-lg mx-auto" style="color: oklch(0.65 0.008 250);">
-          Six deep research profiles, 180+ cited studies, and a weekly digest of new findings — all free, no account needed.
+          Nine deep research profiles, 250+ cited studies, and a weekly digest of new findings — all free, no account needed.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
