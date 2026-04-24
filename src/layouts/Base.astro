@@ -12,16 +12,22 @@ interface Props {
   pageType?: 'website' | 'article';
   pubDate?: Date;
   author?: string;
+  /** Set to true to prevent search engine indexing (checkout pages, thank-you pages, etc.) */
+  noindex?: boolean;
+  /** Tags array — used in Article structured data as keywords */
+  tags?: string[];
 }
 
 const {
-  title = "HelixVault — Peptide Research Guides Backed by Primary Literature",
-  description = "Nine peer-reviewed guides on BPC-157, TB-500, Semaglutide, GHK-Cu, PT-141, and more. Mechanisms, trial data, safety signals — from primary literature, not forum hearsay.",
+  title = "HelixVault — Peptide Research Guide | Evidence-Based Peptide Information",
+  description = "Your definitive peptide research guide. Evidence-based profiles on BPC-157, TB-500, Semaglutide, GHK-Cu, PT-141, and more — mechanisms, trial data, and safety signals from primary literature.",
   ogImage = "https://helixvault.onrender.com/og-default.png",
   canonical,
   pageType = 'website',
   pubDate,
   author = "HelixVault Research Team",
+  noindex = false,
+  tags,
 } = Astro.props;
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, "https://helixvault.onrender.com").toString();
@@ -51,6 +57,9 @@ const pubDateISO = pubDate?.toISOString();
     <meta property="og:title"       content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image"       content={ogImage} />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content={title} />
     <meta property="og:site_name"   content="HelixVault" />
     <meta property="og:locale"      content="en_US" />
     {pageType === 'article' && pubDateISO && (
@@ -62,12 +71,15 @@ const pubDateISO = pubDate?.toISOString();
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@HelixVault" />
+    <meta name="twitter:creator"     content="@HelixVault" />
     <meta name="twitter:title"       content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image"       content={ogImage} />
+    <meta name="twitter:image:alt"   content={title} />
 
     <!-- Robots / indexing -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
 
     <!-- Theme color (browser chrome on mobile) -->
     <meta name="theme-color" content="#0d1117" />
@@ -85,12 +97,24 @@ const pubDateISO = pubDate?.toISOString();
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "HelixVault",
+      "alternateName": "HelixVault Peptide Research Guide",
       "url": "https://helixvault.onrender.com",
-      "description": "Research-grade peptide guides for curious, health-conscious adults.",
-      "potentialAction": {
-        "@type": "ReadAction",
-        "target": "https://helixvault.onrender.com/blog"
-      }
+      "description": "Evidence-based peptide research guide covering BPC-157, TB-500, Semaglutide, CJC-1295, Ipamorelin, GHK-Cu, PT-141, Selank, and Epithalon — mechanisms, trial data, and safety signals from primary literature.",
+      "inLanguage": "en-US",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": "https://helixvault.onrender.com/blog"
+        },
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://helixvault.onrender.com/blog?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ]
     }
     </script>
 
@@ -103,6 +127,7 @@ const pubDateISO = pubDate?.toISOString();
         "description": description,
         "url": canonicalURL,
         "datePublished": pubDateISO,
+        "dateModified": pubDateISO,
         "author": {
           "@type": "Organization",
           "name": "HelixVault Research Team",
@@ -111,13 +136,28 @@ const pubDateISO = pubDate?.toISOString();
         "publisher": {
           "@type": "Organization",
           "name": "HelixVault",
-          "url": "https://helixvault.onrender.com"
+          "url": "https://helixvault.onrender.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://helixvault.onrender.com/og-default.png"
+          }
         },
-        "image": ogImage,
+        "image": {
+          "@type": "ImageObject",
+          "url": ogImage,
+          "width": 1200,
+          "height": 630
+        },
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": canonicalURL
-        }
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "HelixVault",
+          "url": "https://helixvault.onrender.com"
+        },
+        ...(tags && tags.length > 0 ? { "keywords": tags.join(", ") } : {})
       })} />
     )}
   </head>

@@ -9,6 +9,8 @@ const blog = defineCollection({
     description: z.string().optional(),
     pubDate: z.coerce.date().optional(),
     tags: z.array(z.string()).optional(),
+    /** Optional per-post OG image URL (1200×630). Falls back to site default. */
+    ogImage: z.string().url().optional(),
   }),
 });
 
