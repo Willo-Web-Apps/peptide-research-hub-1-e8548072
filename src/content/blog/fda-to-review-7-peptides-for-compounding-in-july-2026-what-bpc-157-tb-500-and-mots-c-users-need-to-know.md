@@ -1,9 +1,8 @@
 ---
 title: "FDA to Review 7 Peptides for Compounding in July 2026: What BPC-157, TB-500, and MOTs-C Users Need to Know"
-description: "FDA to Review 7 Peptides for Compounding in July 2026: What BPC-157, TB-500, and MOTs-C Users Need to Know
-
-Published April 16, 2026 | HelixVault Edi"
+description: "The FDA will review BPC-157, TB-500, MOTs-C, and 4 other peptides for legal compounding status in July 2026. Here's what the ruling means for researchers and patients."
 pubDate: "2026-04-16"
+tags: ["Regulation", "BPC-157", "TB-500", "FDA", "Healing & Recovery", "policy"]
 ---
 
 # FDA to Review 7 Peptides for Compounding in July 2026: What BPC-157, TB-500, and MOTs-C Users Need to Know
