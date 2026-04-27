@@ -1,10 +1,16 @@
 ---
-const apiBase = import.meta.env.PUBLIC_API_BASE_URL || '';
+interface Props {
+  source?: string;
+}
+const { source = 'website' } = Astro.props;
+const subscribeToken = import.meta.env.PUBLIC_SUBSCRIBE_TOKEN || '';
 ---
 <div class="bg-brand-50 rounded-2xl p-8 my-12 text-center">
   <h3 class="text-xl font-bold text-surface-900 mb-2">Stay in the loop</h3>
   <p class="text-surface-800/60 mb-6 text-sm">Get updates, tips, and news delivered to your inbox.</p>
   <form id="email-capture-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+    <input type="hidden" name="source" value={source} />
+    <input type="hidden" name="token" value={subscribeToken} />
     <input
       type="email"
       name="email"
@@ -23,17 +29,20 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL || '';
 </div>
 
 <script>
-  const form = document.getElementById('email-capture-form');
+  const form = document.getElementById('email-capture-form') as HTMLFormElement | null;
   const msg = document.getElementById('email-capture-msg');
-  if (form) {
+  if (form && msg) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = new FormData(form).get('email');
+      const data = new FormData(form);
+      const email = data.get('email');
+      const source = data.get('source');
+      const token = data.get('token');
       try {
         const resp = await fetch('/api/v1/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, source: 'website' }),
+          body: JSON.stringify({ email, source, token }),
         });
         msg.classList.remove('hidden', 'text-red-600', 'text-green-600');
         if (resp.ok) {
@@ -43,6 +52,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL || '';
         } else {
           msg.textContent = 'Something went wrong. Please try again.';
           msg.classList.add('text-red-600');
+          msg.classList.remove('hidden');
         }
       } catch {
         msg.classList.remove('hidden');
