@@ -1,10 +1,6 @@
 ---
 title: "Peptide Index"
-description: "HelixVault Peptide Index — Complete Research Reference
-
-40 peptides tracked | Updated April 2026 | Evidence Tier 1–3 | Legal status reviewed
-
- This i"
+description: "HelixVault's master peptide reference database — 40 peptides tracked with evidence tiers, mechanisms, legal status, and links to in-depth research guides."
 pubDate: "2026-04-27"
 ---
 

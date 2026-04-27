@@ -1,12 +1,6 @@
 ---
 title: "Peptide Safety & Side Effects: The Complete Guide to Responsible Use"
-description: "Peptide Safety & Side Effects: The Complete Guide to Responsible Use
-
-Published by HelixVault Research Team | Last Updated: April 2026
-
----
-
-Safety i"
+description: "A complete guide to peptide safety and side effects — covering risk profiles, contraindications, injection safety, and responsible use protocols for research peptides."
 pubDate: "2026-04-26"
 ---
 

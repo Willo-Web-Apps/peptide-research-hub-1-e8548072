@@ -1,8 +1,6 @@
 ---
 title: "Sermorelin vs Ipamorelin vs CJC-1295: Complete Comparison Guide (2026)"
-description: "Sermorelin vs Ipamorelin vs CJC-1295: Complete Comparison Guide 2026
-
-Growth hormone peptides have become some of the most researched compounds in th"
+description: "Sermorelin vs Ipamorelin vs CJC-1295 — a complete 2026 comparison of mechanisms, half-lives, dosing protocols, side effects, and ideal use cases for each GH peptide."
 pubDate: "2026-04-26"
 ---
 
